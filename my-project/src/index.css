@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;/* Commented imports (assuming these are handled elsewhere) */
+@import '@fontsource/geist-sans';
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  font-family: 'Geist Sans', sans-serif;
+}
+
+
+
+
+nav ul li  {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Galano Grotesque', sans-serif;
+  line-height: 21.6px;
+  text-align: center;
+}
+
+nav ul li span {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Galano Grotesque', sans-serif;
+  line-height: 21.6px;
+  text-align: center;
+}
+
+
+.back-to-top-box:hover .back-to-top {
+  position: relative;
+  top: -5px;
+}
+
+/* fonts */
+h1 {
+  font-size: 48px;
+  line-height: 64px;
+  text-align: center;
+  font-weight: 900;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 52px;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+h3 {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 175;
+  letter-spacing: -2%;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+h4 {
+  font-size: 48px;
+  line-height: 64px;
+  font-weight: 600;
+  font-family: "Averta";
+}
+
+h5 {
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 700;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+h6 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.txt {
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 600;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.txt2 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.txt3 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 500;
+  color: #9ABFF8;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.txt4 {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.txt5 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.txt6 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 700;
+  color: #05284C;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.txt7 {
+  font-size: 30px;
+  line-height: 30px;
+  font-weight: 700;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.txt8 {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+
+p {
+  font-weight: 400;
+  font-family: 'Geist Sans', sans-serif;
+
+}
+
+/* for all the arrow buttons */
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border: none !important;
+  font-size: 16px;
+  color: #3580F1;
+  border-radius: 6px !important;
+  cursor: pointer;
+  transition: all 0.3s ease !important;
+  line-height: 24px;
+  font-weight: 500;
+  font-family: 'Geist Sans', sans-serif;
+}
+
+.arrow:hover {
+  gap: 15px;
+  color: white;
+}
+
+/* for all the arrow buttons */
