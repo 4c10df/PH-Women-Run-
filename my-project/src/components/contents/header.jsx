@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../navigation/navbar";
 import Hero from "../slider/image_slider";
 import SaveUrPotForm from "../form/saveUrPot";
+// import HygraphFetch from "./APIs/hero";
 
 function header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,7 @@ function header() {
         <Navbar openOverlay={openOverlay} />
         <SaveUrPotForm isOpen={isOpen} closeOverlay={closeOverlay} />
         <Hero />
+        {/* <HygraphFetch /> */}
       </div>
     </>
   );
