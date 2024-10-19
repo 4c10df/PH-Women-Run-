@@ -2,15 +2,15 @@ import React from "react";
 import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import { GoArrowDown } from "react-icons/go";
-// import slideImage from "../slider/closeup-on-black-bottle-water-260nw-2418895541.webp";
-// import slideImage1 from "../slider/closeup-on-black-bottle-water-260nw-2418895541.webp";
-// import slideImage2 from "../slider/closeup-on-black-bottle-water-260nw-2418895541.webp";
 import shape1 from "../slider/shapes/shape1.png";
 import shape2 from "../slider/shapes/shape2.png";
-import logo from "../slider/TRADEMARKED PH CITY WOMEN PNG 1 3.png";
 import Countdown from "../contents/sections/coutDown";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import slideImage1 from "../contents/image/homeImg/1d5d5d58530a43a193941eb68bc83221.jpeg";
+import slideImage2 from "../contents/image/homeImg/4d2c5a2a724ee65ec14cfa5861477f16.jpeg";
+import slideImage3 from "../contents/image/homeImg/960090c547af153fd56f4347f0a31e30.jpeg";
+import slideImage4 from "../contents/image/homeImg/ab9a8f02f5f37e14cc5d6b355f1a89a2.jpeg";
 
 const ImageSlider = () => {
   const [data, setData] = useState(null);
@@ -30,24 +30,16 @@ const ImageSlider = () => {
     schedule
     slideTitle1
     description1
-    slideImage1 {
-      url
-    }
+    
     slideTitle2
     description2
-    slideImage2 {
-      url
-    }
+    
     slideTitle3
     description3
-    slideImage3 {
-      url
-    }
+    
     slideTitle4
     description4
-    slideImage4 {
-      url
-    }
+    
   
       
     }
@@ -70,29 +62,37 @@ const ImageSlider = () => {
     fetchData();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching data</p>;
+  if (loading) return (
+    <p className="h-[100vh] flex justify-center items-center leading-tight text-[20px] text-white">
+      Loading...
+    </p>
+  );
+  if (error) return (
+    <p className="h-[100vh] flex justify-center items-center leading-tight text-[20px] text-white">
+      lets get you back online
+    </p>
+  );
 
   const slides = data
     ? [
         {
-          image: data.slideImage1.url,
+          image: slideImage1,
           title: data.slideTitle1,
           subTitle: data.description3,
           schedule: data.schedule,
         },
         {
-          image: data.slideImage2.url, // Correct syntax for the image
+          image: slideImage2, // Correct syntax for the image
           title1: data.slideTitle2,
           subTitle1: data.description2,
         },
         {
-          image: data.slideImage3.url,
+          image: slideImage3,
           title1: data.slideTitle3,
           subTitle1: data.description3,
         },
         {
-          image: data.slideImage4.url,
+          image: slideImage4,
           title1: data.slideTitle4,
           subTitle1: data.description4,
         },

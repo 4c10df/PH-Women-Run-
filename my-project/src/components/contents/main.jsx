@@ -1,32 +1,28 @@
-// import React, { useState } from "react";
+import React from "react";
 import { useEffect } from "react";
-import RoundText from "./roundText";
-import contents from "../props/round";
-import Cards from "../slider/cards";
-import AchievementsSection from "./sections/achievement";
-import SectionWhereWeAre from "./sections/where-we-are";
-import BlogSlide from "../slider/blog_cards";
-import FAQ from "./FAQ";
-import OurPartners from "../testimonial/partners";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import TestimonialSlider from "../testimonial/testimonial";
-import background from "./image/blue-background.webp";
-import Button from "./Button";
-import Link from "./link";
-import SectionPartner from "./sections/partner";
+
+// import Link from "./link";
+import RunLikeNever from "./sections/homeSection/runLike";
+import RunFast from "./sections/homeSection/runFast";
+import CommunitEvents from "./sections/homeSection/events";
+import OurPartners from "./sections/OurPartner";
+import YourPotential from "./sections/homeSection/Discover";
+import TheLastest from "./sections/homeSection/lastest";
 
 
 
 function Main() {
-  useEffect(() => {
-    AOS.init({ duration: 3000, once: true });
-  }, []);
+  
 
   return (
     <div className="relative flex flex-col justify-center items-center w-full ">
       
-
+      <RunLikeNever/>
+      <RunFast />
+      <CommunitEvents />
+      <OurPartners />
+      <YourPotential />
+      <TheLastest/>
     
     </div>
   );

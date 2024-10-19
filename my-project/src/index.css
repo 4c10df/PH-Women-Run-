@@ -12,9 +12,22 @@
 
 body {
   font-family: 'Geist Sans', sans-serif;
+  /* font-family: 'Galano Grotesque', sans-serif; */
 }
 
-
+.custom-blur-shadow {
+  backdrop-filter: blur(60px);
+  box-shadow: 0px 4px 24px -1px rgba(255, 255, 255, 0.25);
+}
+.custom-border {
+  border: 1px solid transparent;
+  /* Transparent solid border */
+  border-image-source: linear-gradient(155.24deg, rgba(239, 232, 205, 0.2) -1.19%, rgba(242, 241, 225, 0.2) 34.8%, rgba(250, 193, 248, 0.2) 76.79%, rgba(37, 83, 128, 0.2) 105.1%);
+  border-image-slice: 1;
+  /* Ensures the border gradient is fully applied */
+  border-radius: 12px !important;
+  /* Rounds the corners */
+}
 
 
 nav ul li  {
@@ -64,30 +77,30 @@ h3 {
 }
 
 h4 {
-  font-size: 48px;
-  line-height: 64px;
-  font-weight: 600;
-  font-family: "Averta";
+  font-size: 40px;
+  line-height: 52px;
+  font-weight: 176;
+  font-family: 'Geist Sans', sans-serif;
 }
 
 h5 {
-  font-size: 20px;
+  font-size: 32px;
   line-height: 32px;
-  font-weight: 700;
+  font-weight: 800;
   font-family: 'Geist Sans', sans-serif;
 }
 
 h6 {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 32px;
-  font-weight: 600;
+  font-weight: 800;
   font-family: 'Geist Sans', sans-serif;
 }
 
 .txt {
   font-size: 16px;
-  line-height: 32px;
-  font-weight: 600;
+  line-height: 19.84px;
+  font-weight: 500;
   font-family: 'Geist Sans', sans-serif;
 }
 
@@ -107,8 +120,9 @@ h6 {
 }
 
 .txt4 {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 18.9px;
   font-family: 'Geist Sans', sans-serif;
 }
 
@@ -128,19 +142,24 @@ h6 {
 }
 
 .txt7 {
-  font-size: 30px;
-  line-height: 30px;
+  font-size: 32px;
+  line-height: 32px;
   font-weight: 700;
   font-family: 'Geist Sans', sans-serif;
 }
 
 .txt8 {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 176;
   line-height: 32px;
   font-family: 'Geist Sans', sans-serif;
 }
-
+.txt9 {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  font-family: 'Galano Grotesque', sans-serif;
+}
 
 p {
   font-weight: 400;
@@ -171,3 +190,33 @@ p {
 }
 
 /* for all the arrow buttons */
+
+/* table */
+table tr{
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  align-content: flex-start;
+  width: 100%;
+  gap: 30px;
+  width: 100%;
+  padding: 10px 10px;
+  border-bottom: solid 1px #F3F5F6;
+}
+
+table tbody {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  align-content: flex-start;
+  width: 100%;
+  gap: 30px;
+}
+table td,
+th {
+  display: flex;
+  justify-content: flex-start;
+  width: 200px;
+  
+}

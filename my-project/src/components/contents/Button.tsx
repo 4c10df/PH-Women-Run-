@@ -1,6 +1,6 @@
-import React, { FC } from 'react';
-import PropTypes from 'prop-types';
-import './styles/_button.css';
+import React, { FC } from "react";
+import PropTypes from "prop-types";
+import "./styles/_button.css";
 
 interface ButtonProps {
   children: React.ReactNode;
@@ -15,12 +15,14 @@ interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({
   children,
-  onClick = () => {onClick},
-  type = 'button',
+  onClick = () => {
+    onClick;
+  },
+  type = "button",
   disabled = false,
-  className = '',
-  size = 'medium',
-  color = 'primary',
+  className = "",
+  size = "medium",
+  color = "primary",
 }) => {
   return (
     <button
@@ -40,7 +42,15 @@ Button.propTypes = {
   type: PropTypes.oneOf(["button", "submit", "reset"]),
   disabled: PropTypes.bool,
   className: PropTypes.string,
-  size: PropTypes.oneOf(["small", "cdn", "sign", "arrow", "play", "medium", "large"]),
+  size: PropTypes.oneOf([
+    "small",
+    "cdn",
+    "sign",
+    "arrow",
+    "play",
+    "medium",
+    "large",
+  ]),
   color: PropTypes.oneOf(["primary", "secondary", "danger"]),
 };
 

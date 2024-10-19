@@ -4,7 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { HiMenuAlt3 } from "react-icons/hi";
 import Button from "../contents/Button";
 import logo1 from "./logos/TRADEMARKED PH CITY WOMEN PNG 1 3.png";
-import logo2 from "./logos/TRADEMARKED PH CITY WOMEN PNG 2 2.png";
+import logo2 from "./logos/156a5363dc0856d3728fb5e10c7538f4.png";
 import Link from "../contents/link";
 import "@fontsource/geist-sans";
 
@@ -16,100 +16,88 @@ const Navbar = ({ openOverlay }) => {
   const isHomePage = pathname === "/";
 
   useEffect(() => {
-    // Set the active link based on the current pathname
-    const currentPage = pathname === "/" ? "/" : pathname.substring(1); // Handle "/" for home
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const currentPage = pathname === "/" ? "/" : pathname.substring(1);
     setActiveLink(currentPage);
   }, [pathname]);
 
-  function openMenu() {
-    setToggle(true);
-  }
-
-  function closeMenu() {
-    setToggle(false);
-  }
+  const openMenu = () => setToggle(true);
+  const closeMenu = () => setToggle(false);
 
   return (
     <nav
-      className={`fixed top-0 z-[999] bg-navColor flex justify-center items-center h-[102px] w-full ${
-        isHomePage ? "bg-navColor" : "bg-white"
-      }`}
+      className={`fixed top-0 z-[999] flex justify-center items-center h-[102px] w-full 
+        ${
+          isHomePage
+            ? scrolled
+              ? "bg-white text-white"
+              : "bg-navColor text-[#FFFFFF]"
+            : "bg-white"
+        }
+      `}
     >
-      <div className="relative flex justify-center items-center w-full 2xl:w-[1280px] px-[15px] py-[16px] at500:px-[72px] my-0 mx-auto">
-        <div className="relative w-full mx-auto flex md:flex-row justify-between items-start md:items-center">
-          <div className="relative flex justify-start items-start mb-2 md:mb-0">
+      <div className="relative flex justify-center items-center w-full 2xl:w-[1280px] px-[15px] py-[16px] at500:px-[72px] mx-auto">
+        <div className="relative w-full flex md:flex-row justify-between items-center">
+          <div className="flex items-start">
             <Link to="/">
-              {isHomePage ? (
-                <img
-                  src={logo1}
-                  alt="logo"
-                  className="h-auto w-[76.2px] pr-2 border-r-[3px] border-r-[#E2E2E24A] object-contain"
-                />
-              ) : (
-                <img
-                  src={logo2}
-                  alt="logo"
-                  className="h-auto w-[76.2px] pr-2 border-r-[3px] border-r-[#E2E2E24A] object-contain"
-                />
-              )}
+              <img
+                src={isHomePage ? (scrolled ? logo2 : logo1) : logo2}
+                alt="logo"
+                className="h-auto w-[76.2px] pr-2 border-r-[3px] border-r-[#E2E2E24A] object-contain"
+              />
             </Link>
           </div>
 
+          {/* Desktop Menu */}
           <ul className="hidden silver:flex justify-end items-center space-x-4">
-            <Link to="/" onClick={() => setActiveLink("/")}>
-              <li
-                className={`py-[10px] px-[10px] capitalize ${
-                  activeLink === "/" ? "font-bold " : ""
-                } ${isHomePage ? "text-white" : "text-[#111E2F]"}`}
+            {["home", "about", "Conference", "news", "post-Events"].map((link) => (
+              <Link
+                to={`/${link === "home" ? "" : link}`}
+                key={link}
+                onClick={() => setActiveLink(link === "home" ? "/" : link)}
               >
-                home
-              </li>
-            </Link>
-
-            <Link to="/about" onClick={() => setActiveLink("about")}>
-              <li
-                className={`py-[10px] px-[10px] capitalize ${
-                  activeLink === "about" ? "font-bold " : ""
-                } ${isHomePage ? "text-white" : "text-[#111E2F]"}`}
-              >
-                about
-              </li>
-            </Link>
-
-            <Link to="/news" onClick={() => setActiveLink("news")}>
-              <li
-                className={`py-[10px] px-[10px] capitalize ${
-                  activeLink === "news" ? "font-bold " : ""
-                } ${isHomePage ? "text-white" : "text-[#111E2F]"}`}
-              >
-                news
-              </li>
-            </Link>
-
-            <Link to="/archives" onClick={() => setActiveLink("archives")}>
-              <li
-                className={`py-[10px] px-[10px] capitalize ${
-                  activeLink === "archives" ? "font-bold " : ""
-                } ${isHomePage ? "text-white" : "text-[#111E2F]"}`}
-              >
-                post event
-              </li>
-            </Link>
-
-            <li className="py-[10px] w-[159px] pl-[18px]">
-              <span className="flex">
-                <Button
-                  size="medium"
-                  onClick={openOverlay}
-                  className={`border-[1px] font-Galano border-solid capitalize bg-white ${
+                <li
+                  className={`py-[10px] px-[10px] capitalize ${
+                    activeLink === (link === "home" ? "/" : link)
+                      ? "font-bold"
+                      : ""
+                  } ${
                     isHomePage
-                      ? "bg-white text-[#320101]"
-                      : "!bg-[#8D12AB] text-[#FFFFFF]"
+                      ? scrolled
+                        ? "text-[#111E2F]"
+                        : "text-[#FFFFFF]"
+                      : "text-[#111E2F]"
                   }`}
                 >
-                  Register
-                </Button>
-              </span>
+                  {link}
+                </li>
+              </Link>
+            ))}
+
+            <li className="py-[10px] w-[159px] pl-[18px]">
+              <Button
+                size="medium"
+                onClick={openOverlay}
+                className={`border-[1px] font-Galano border-solid capitalize ${
+                  isHomePage
+                    ? scrolled
+                      ? "bg-[#8D12AB] text-[#FFFFFF]"
+                      : "bg-white text-[#320101]"
+                    : "bg-[#8D12AB] text-[#FFFFFF]"
+                }`}
+              >
+                Register
+              </Button>
             </li>
           </ul>
 
@@ -120,13 +108,13 @@ const Navbar = ({ openOverlay }) => {
                 <AiOutlineClose
                   onClick={closeMenu}
                   size={20}
-                  className={` ${scrolled ? "text-white" : "text-[#FFFFFF]"}`}
+                  className={`${scrolled ? "text-[#8D12AB]" : "text-white"}`}
                 />
               ) : (
                 <HiMenuAlt3
                   onClick={openMenu}
                   size={30}
-                  className={` ${scrolled ? "text-white" : "text-[#FFFFFF]"}`}
+                  className={`${scrolled ? " text-[#8D12AB]" : "text-white"}`}
                 />
               )}
             </div>

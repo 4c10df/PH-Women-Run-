@@ -5,7 +5,7 @@ import { Blurhash } from "react-blurhash";
 
 const LoadBlurHashImage = ({ src, blurHash, alt, className }) => {
   return (
-    <div className="">
+    <div className="w-full">
       <LazyLoadImage
         alt={alt}
         src={src}

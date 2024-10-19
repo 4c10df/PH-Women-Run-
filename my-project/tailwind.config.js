@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'transparent': 'transparent',
+        'transparent': '0px 4px 24px -1px rgba(255, 255, 255, 0.25)',
         'current': 'currentColor',
         'white': '#ffffff',
         'footer-pop': 'var(--90, #E6EFFD);',

@@ -1,59 +1,93 @@
-// import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-// const HygraphFetch = () => {
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(true);
-//   const [error, setError] = useState(null);
+const HygraphFetch = () => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-//   const hygraphEndpoint =
-//     "https://ca-central-1.cdn.hygraph.com/content/cm10t9se900kk07v1y9anmeel/master";
+  // Your Hygraph endpoint
+  const hygraphEndpoint =
+    "https://ap-south-1.cdn.hygraph.com/content/cm25wyi9i064707wegesycex9/master";
 
-//   const query = `{
-//     heroSection(where: {id: "cm13cwqil4e1q07u37bk6k4yi"}) {
-//       id
-//       firstSlide
-//       secondSlide
-//       schedule
-//       imageslide {
-//         url
-//         fileName
-//       }
-//     }
-//   }`;
+  // Query to fetch all posts with the necessary fields
+  const query = `{
+    posts {
+      id
+      title
+      slug
+      date
+      excerpt
+      coverImage {
+        url
+        fileName
+      }
+      content {
+        html
+      }
+      author {
+        name
+      }
+    }
+  }`;
 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await axios.post(hygraphEndpoint, {
-//           query: query,
-//         });
-//         setData(response.data.data.heroSection);
-//         setLoading(false);
-//       } catch (err) {
-//         setError(err);
-//         setLoading(false);
-//       }
-//     };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post(hygraphEndpoint, {
+          query: query,
+        });
+        setData(response.data.data.posts); // Set the fetched posts to state
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    };
 
-//     fetchData();
-//   }, []);
+    fetchData();
+  }, []);
 
-//   if (loading) return <p>Loading...</p>;
-//   if (error) return <p>Error fetching data</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error fetching data</p>;
 
-//   return (
-//     <div>
-//       {data && (
-//         <div key={data.id}>
-//           <h2>{data.firstSlide}</h2>
-//           <h2>{data.secondSlide}</h2>
-//           <p>{data.schedule}</p>
-//           <img src={data.imageslide.url} alt={data.imageslide.fileName} />
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      {data && data.length > 0 ? (
+        data.map((post) => (
+          <div
+            key={post.id}
+            className="flex flex-col gap-[8px] silver:w-[357px]"
+          >
+            <h6 data-aos="fade-up" className="text-[#353F50]">
+              {post.title}
+            </h6>
 
-// export default HygraphFetch;
+            <p>
+              <strong>Slug:</strong> {post.slug}
+            </p>
+            <p>
+              <strong>Date:</strong> {new Date(post.date).toDateString()}
+            </p>
+            <p>{post.excerpt}</p>
+            {post.coverImage && (
+              <img
+                src={post.coverImage.url}
+                alt={post.coverImage.fileName}
+                style={{ width: "200px", height: "auto" }}
+              />
+            )}
+            <p>
+              <strong>Author:</strong> {post.author?.name}
+            </p>
+            {/* <div dangerouslySetInnerHTML={{ __html: post.content.html }} /> */}
+          </div>
+        ))
+      ) : (
+        <p>No posts available</p>
+      )}
+    </div>
+  );
+};
+
+export default HygraphFetch;
